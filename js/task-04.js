@@ -4,17 +4,16 @@ let sum = prompt("Какое количество дроидов вы хотит
 let totalPrice = 0;
 
 if (sum === null) {
-  console.log("Отменено пользователем!");
-} else if (sum > null) {
-  sum = Number(sum);
-  totalPrice = sum * pricePerDroid;
-}
-if (credits < totalPrice) {
-  console.log("Недостаточно средств на счету!");
+    console.log("Отменено пользователем!");
 } else {
-  console.log(
-    `Вы купили ${sum} дроидов, на счету осталось ${
-      credits - totalPrice
-    } кредитов.`
-  );
+    totalPrice = Number(sum) * pricePerDroid;
+
+    if (credits < totalPrice && sum !== null) {
+        console.log("Недостаточно средств на счету!");
+    } else {
+        console.log(
+            `Вы купили ${sum} дроидов, на счету осталось ${credits - totalPrice
+            } кредитов.`
+        );
+    }
 }
